@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<!--  
+/**
+ * db_schema.xml
+ *
+ * Created By : Sartaj
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="keyvalue_tbl" resource="default" engine="innodb"
+               comment="KeyValue Table">
+        <column xsi:type="int" name="entity_id" padding="11" unsigned="false" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="varchar" name="code" nullable="false" length="255" comment="Code"/>
+        <column xsi:type="varchar" name="value" nullable="false" length="255" comment="Value"/>
+        <column xsi:type="datetime" name="created_at" nullable="true" default="CURRENT_TIMESTAMP" comment="Created at"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+</schema>

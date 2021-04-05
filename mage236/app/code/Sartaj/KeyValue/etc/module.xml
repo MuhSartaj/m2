@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<!--  
+/**
+ * module.xml
+ *
+ * Created By : Sartaj
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+	<module name="Sartaj_KeyValue"/>
+	<sequence>
+		<module name="Magento_Backend"/>
+		<module name="Magento_Ui"/>
+	</sequence>
+</config>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--  
+/**
+ * menu.xml
+ *
+ * Created By : Sartaj
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Sartaj_KeyValue::index_index" title="keyvalue" module="Sartaj_KeyValue" sortOrder="1000" parent="Magento_Catalog::catalog_categories" resource="Magento_Catalog::categories" action="keyvalue/index/index"/>
+    </menu>
+</config>

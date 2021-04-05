@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * di.xml
+ *
+ * Created By : Sartaj
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Sartaj\KeyValue\Api\Data\KeyValueInterface" type="Sartaj\KeyValue\Model\KeyValue" />
+    <preference for="Sartaj\KeyValue\Api\KeyValueRepositoryInterface" type="Sartaj\KeyValue\Model\KeyValueRepository" />
+    <virtualType name="KeyValueGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Sartaj\KeyValue\Model\ResourceModel\KeyValue\Collection</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="sartaj_keyvalue_listing_data_source" xsi:type="string">Sartaj\KeyValue\Model\ResourceModel\KeyValue\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Sartaj\KeyValue\Model\ResourceModel\KeyValue\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">keyvalue_tbl</argument>
+            <argument name="eventPrefix" xsi:type="string">keyvalue_tbl_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">keyvalue_tbl_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Sartaj\KeyValue\Model\ResourceModel\KeyValue</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Model\Entity\RepositoryFactory">
+        <arguments>
+            <argument name="entities" xsi:type="array">
+                <item name="Sartaj\KeyValue\Api\Data\KeyValueInterface" xsi:type="string">Sartaj\KeyValue\Api\KeyValueRepositoryInterface</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Rest Api Interface classes -->
+
+    <preference for="Sartaj\KeyValue\Api\KeyValueApiInterface" type="Sartaj\KeyValue\Model\Api\KeyValue"/>
+</config>

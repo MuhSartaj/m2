@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * REST API webapi.xml
+ *
+ * Created By : Sartaj
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    
+    <!-- KeyValue API get All list-->
+    <route url="/V1/keyvalue" method="GET">
+        <service class="Sartaj\KeyValue\Api\KeyValueApiInterface" method="getAll"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <!-- KeyValue API get record by {code} -->
+    <route url="/V1/keyvalue/:code" method="GET">
+        <service class="Sartaj\KeyValue\Api\KeyValueApiInterface" method="getByCode"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <!-- KeyValue API DELETE record by {code} -->
+    <route url="/V1/keyvalue/:code" method="DELETE">
+        <service class="Sartaj\KeyValue\Api\KeyValueApiInterface" method="deleteByCode"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <!-- KeyValue API get All list-->
+    <route url="/V1/keyvalue" method="POST">
+        <service class="Sartaj\KeyValue\Api\KeyValueApiInterface" method="addRecord"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+</routes>
